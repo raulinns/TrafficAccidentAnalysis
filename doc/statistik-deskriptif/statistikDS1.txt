@@ -1,0 +1,239 @@
+File: traffic_accidents_2024.csv
+
+==================================================
+STATISTIK DESKRIPTIF (KOLOM NUMERIK)
+==================================================
+
+🔹 num_units:
+Rata-rata: 2.06
+Std Deviasi: 0.39
+Min: 1.00
+10%: 2.00
+25%: 2.00
+Median: 2.00
+75%: 2.00
+90%: 2.00
+Max: 11.00
+
+🔹 injuries_total:
+Rata-rata: 0.44
+Std Deviasi: 0.85
+Min: 0.00
+10%: 0.00
+25%: 0.00
+Median: 0.00
+75%: 1.00
+90%: 1.00
+Max: 15.00
+
+🔹 injuries_fatal:
+Rata-rata: 0.00
+Std Deviasi: 0.05
+Min: 0.00
+10%: 0.00
+25%: 0.00
+Median: 0.00
+75%: 0.00
+90%: 0.00
+Max: 2.00
+
+🔹 injuries_incapacitating:
+Rata-rata: 0.03
+Std Deviasi: 0.22
+Min: 0.00
+10%: 0.00
+25%: 0.00
+Median: 0.00
+75%: 0.00
+90%: 0.00
+Max: 7.00
+
+🔹 injuries_non_incapacitating:
+Rata-rata: 0.24
+Std Deviasi: 0.64
+Min: 0.00
+10%: 0.00
+25%: 0.00
+Median: 0.00
+75%: 0.00
+90%: 1.00
+Max: 13.00
+
+🔹 injuries_reported_not_evident:
+Rata-rata: 0.17
+Std Deviasi: 0.52
+Min: 0.00
+10%: 0.00
+25%: 0.00
+Median: 0.00
+75%: 0.00
+90%: 1.00
+Max: 8.00
+
+🔹 crash_hour:
+Rata-rata: 13.27
+Std Deviasi: 5.59
+Min: 0.00
+10%: 6.00
+25%: 9.00
+Median: 14.00
+75%: 17.00
+90%: 20.00
+Max: 23.00
+
+==================================================
+DISTRIBUSI FREKUENSI (KOLOM KATEGORIKAL)
+==================================================
+
+🔹 Distribusi traffic_control_device:
+traffic_control_device
+TRAFFIC SIGNAL              0.583276
+STOP SIGN/FLASHER           0.233120
+NO CONTROLS                 0.137598
+UNKNOWN                     0.034180
+OTHER                       0.002899
+YIELD                       0.002747
+PEDESTRIAN CROSSING SIGN    0.002022
+OTHER REG. SIGN             0.001373
+FLASHING CONTROL SIGNAL     0.000954
+POLICE/FLAGMAN              0.000458
+Name: proportion, dtype: float64
+
+🔹 Distribusi weather_condition:
+weather_condition
+CLEAR                    0.791180
+RAIN                     0.098001
+UNKNOWN                  0.048409
+CLOUDY/OVERCAST          0.033837
+SNOW                     0.019837
+FREEZING RAIN/DRIZZLE    0.003548
+OTHER                    0.002708
+FOG/SMOKE/HAZE           0.001297
+SLEET/HAIL               0.000649
+BLOWING SNOW             0.000534
+Name: proportion, dtype: float64
+
+🔹 Distribusi lighting_condition:
+lighting_condition
+DAYLIGHT                  0.640955
+DARKNESS, LIGHTED ROAD    0.239910
+DARKNESS                  0.035401
+UNKNOWN                   0.033837
+DUSK                      0.030823
+DAWN                      0.019074
+Name: proportion, dtype: float64
+
+🔹 Distribusi first_crash_type:
+first_crash_type
+TURNING                     0.311627
+ANGLE                       0.260128
+REAR END                    0.168460
+SIDESWIPE SAME DIRECTION    0.098154
+PEDESTRIAN                  0.046731
+PEDALCYCLIST                0.031930
+PARKED MOTOR VEHICLE        0.026017
+FIXED OBJECT                0.019226
+HEAD ON                     0.008698
+REAR TO FRONT               0.008469
+Name: proportion, dtype: float64
+
+🔹 Distribusi roadway_surface_cond:
+roadway_surface_cond
+DRY              0.747425
+WET              0.138933
+UNKNOWN          0.091058
+SNOW OR SLUSH    0.017967
+ICE              0.002937
+OTHER            0.001678
+Name: proportion, dtype: float64
+
+🔹 Distribusi prim_contributory_cause:
+prim_contributory_cause
+UNABLE TO DETERMINE                       0.302472
+FAILING TO YIELD RIGHT-OF-WAY             0.217250
+FOLLOWING TOO CLOSELY                     0.076333
+DISREGARDING TRAFFIC SIGNALS              0.070611
+IMPROPER TURNING/NO SIGNAL                0.062486
+FAILING TO REDUCE SPEED TO AVOID CRASH    0.044137
+IMPROPER OVERTAKING/PASSING               0.043679
+IMPROPER LANE USAGE                       0.028916
+NOT APPLICABLE                            0.027848
+DRIVING SKILLS/KNOWLEDGE/EXPERIENCE       0.026856
+Name: proportion, dtype: float64
+
+🔹 Distribusi most_severe_injury:
+most_severe_injury
+NO INDICATION OF INJURY     0.705081
+NONINCAPACITATING INJURY    0.163615
+REPORTED, NOT EVIDENT       0.102045
+INCAPACITATING INJURY       0.027657
+FATAL                       0.001602
+Name: proportion, dtype: float64
+
+🔹 Distribusi crash_day_of_week:
+crash_day_of_week
+6    0.157015
+4    0.146715
+5    0.146181
+7    0.146181
+3    0.144427
+2    0.134089
+1    0.125391
+Name: proportion, dtype: float64
+
+🔹 Distribusi crash_month:
+crash_month
+5     0.092241
+10    0.090753
+9     0.089837
+6     0.087701
+8     0.087053
+7     0.085031
+11    0.083314
+12    0.082742
+4     0.080148
+3     0.076944
+Name: proportion, dtype: float64
+
+==================================================
+DISTRIBUSI JAM TERJADINYA KECELAKAAN
+==================================================
+crash_hour
+0      549
+1      457
+2      379
+3      311
+4      286
+5      379
+6      619
+7     1251
+8     1531
+9     1163
+10    1121
+11    1310
+12    1411
+13    1395
+14    1663
+15    2047
+16    1950
+17    2023
+18    1684
+19    1251
+20    1041
+21     908
+22     785
+23     700
+Name: count, dtype: int64
+
+==================================================
+DISTRIBUSI HARI DALAM MINGGU
+==================================================
+crash_day_of_week
+Sabtu     4116
+Kamis     3846
+Jumat     3832
+Minggu    3832
+Rabu      3786
+Selasa    3515
+Senin     3287
+Name: count, dtype: int64
