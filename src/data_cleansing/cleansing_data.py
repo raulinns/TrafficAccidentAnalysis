@@ -3,8 +3,8 @@ import pandas as pd
 # ================================
 # LOAD DATASET
 # ================================
-traffic_df = pd.read_csv(r"C:\Users\sabeink\Downloads\traffic_accidents_2024.csv")
-nashville_df = pd.read_csv(r"C:\Users\sabeink\Downloads\nashville-accidents-2024.csv")
+traffic_df = pd.read_csv('../../dataset/2024-dataset/DS1-traffic_accidents_2024.csv')
+nashville_df = pd.read_csv('../../dataset/2024-dataset/DS2-nashville_accidents_2024.csv')
 
 # Membersihkan nama kolom dataset Nashville (menghindari spasi ganda & newline)
 nashville_df.columns = [col.strip().replace('\n', ' ').replace('  ', ' ') for col in nashville_df.columns]
@@ -32,8 +32,7 @@ df_clean_traffic = remove_outliers_iqr(df_clean_traffic, 'injuries_total')
 df_clean_traffic = remove_outliers_iqr(df_clean_traffic, 'num_units')
 
 # 3. Simpan dataset hasil cleansing
-df_clean_traffic.to_csv("traffic_accidents_cleaned.csv", index=False)
-print("✔ Data Traffic Accidents berhasil dibersihkan dan disimpan ke 'traffic_accidents_cleaned.csv'")
+df_clean_traffic.to_csv("../../dataset/cleaned-dataset/traffic_accidents_cleaned.csv", index=False)
 
 # ================================
 # NASHVILLE ACCIDENTS 2024 CLEANSING
@@ -48,5 +47,4 @@ for col in ['Weather Description', 'Illumination Description', 'Collision Type D
 # 2. Tidak ada outlier signifikan → tidak dilakukan penghapusan
 
 # 3. Simpan dataset hasil cleansing
-df_clean_nashville.to_csv("nashville_accidents_cleaned.csv", index=False)
-print("✔ Data Nashville Accidents berhasil dibersihkan dan disimpan ke 'nashville_accidents_cleaned.csv'")
+df_clean_nashville.to_csv("../../dataset/cleaned-dataset/nashville_accidents_cleaned.csv", index=False)
