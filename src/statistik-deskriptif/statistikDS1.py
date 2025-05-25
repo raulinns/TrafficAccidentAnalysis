@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # 1. Load Data
-df = pd.read_csv('traffic_accidents_2024.csv')
+df = pd.read_csv('../../dataset/2024-dataset/traffic_accidents_2024.csv')
 
 # 2. Statistik Deskriptif untuk Kolom Numerik
 numeric_cols = [

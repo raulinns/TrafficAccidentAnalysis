@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import pearsonr, spearmanr, pointbiserialr, chi2_contingency, f_oneway
 
 # 1. Load Data
-df = pd.read_csv('../../dataset/DS1-traffic_accidents_2024.csv')
+df = pd.read_csv('../../dataset/2024-dataset/DS1-traffic_accidents_2024.csv')
 
 # 2. Preprocessing
 cols_to_drop = [
@@ -325,7 +325,7 @@ plt.yticks(rotation=0)
 plt.tight_layout()
 
 # Save figure
-output_path = '../../doc/korelasi/DS2-hybrid_correlation_matrix.png'
+output_path = '../../doc/korelasi/DS1-correlation-matrix.png'
 plt.savefig(output_path, dpi=300, bbox_inches='tight')
 
 plt.show()

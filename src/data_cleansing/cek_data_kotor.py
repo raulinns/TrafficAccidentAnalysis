@@ -1,7 +1,8 @@
 import pandas as pd
 
 # Load datasets
-traffic_df = pd.read_csv('../../dataset/2024-dataset/DS1-traffic_accidents_2024.csv')
+traffic_df = pd.read_csv('../../dataset/cleaned-dataset/nashville_accidents_cleaned.csv')
+# traffic_df = pd.read_csv('../../dataset/2024-dataset/DS1-traffic_accidents_2024.csv')
 nashville_df = pd.read_csv('../../dataset/2024-dataset/DS2-nashville_accidents_2024.csv')
 
 # Membersihkan nama kolom dataset Nashville (menghindari spasi dan newline)

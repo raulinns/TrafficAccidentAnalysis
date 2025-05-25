@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # 1. Load your CSV file
-input_path = r"C:\00-IMPORTANT\01-ITB\01-IF-2024\02-Semester-2\06-Literasi-Data-dan-Inteligensi-Artifisial\02-Tugas\Tubes\traffic_accidents.csv"
+input_path = r"../../dataset/original-dataset/traffic_accidents.csv"
 try:
     df = pd.read_csv(input_path)
     print("Original data loaded successfully. Columns:", df.columns.tolist())
@@ -42,7 +42,7 @@ print(f"\nFiltered to {len(df_2024)} rows from 2024")
 print("Date range:", df_2024['parsed_datetime'].min().date(), "to", df_2024['parsed_datetime'].max().date())
 
 # 7. Save the processed data
-output_path = r"C:\00-IMPORTANT\01-ITB\01-IF-2024\02-Semester-2\06-Literasi-Data-dan-Inteligensi-Artifisial\02-Tugas\Tubes\traffic_accidents_2024.csv"
+output_path = r"/../../dataset/2024-dataset/DS1-traffic_accidents_2024.csv"
 try:
     df_2024.to_csv(
         output_path,
