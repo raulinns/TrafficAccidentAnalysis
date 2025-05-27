@@ -3,132 +3,136 @@ import pandas as pd
 # Baca file CSV
 df = pd.read_csv('traffic_accidents_2024.csv')
 
-# Mapping dictionaries (telah diurutkan dari kondisi terbaik ke terburuk)
+# Mapping dictionaries (with UNKNOWN=1, OTHER=2, rest ranked from 3 onward)
 traffic_control_device_mapping = {
-    'NO CONTROLS': 1,
-    'YIELD': 2,
-    'TRAFFIC SIGNAL': 3,
-    'PEDESTRIAN CROSSING SIGN': 4,
-    'STOP SIGN/FLASHER': 5,
-    'FLASHING CONTROL SIGNAL': 6,
-    'OTHER REG. SIGN': 7,
-    'POLICE/FLAGMAN': 8,
-    'SCHOOL ZONE': 9,
-    'RR CROSSING SIGN': 10,
-    'RAILROAD CROSSING GATE': 11,
-    'OTHER RAILROAD CROSSING': 12,
-    'BICYCLE CROSSING SIGN': 13,
-    'DELINEATORS': 14,
-    'NO PASSING': 15,
-    'OTHER': 16,
-    'UNKNOWN': 17
+    'UNKNOWN': 1,
+    'OTHER': 2,
+    'NO CONTROLS': 3,
+    'YIELD': 4,
+    'TRAFFIC SIGNAL': 5,
+    'PEDESTRIAN CROSSING SIGN': 6,
+    'STOP SIGN/FLASHER': 7,
+    'FLASHING CONTROL SIGNAL': 8,
+    'OTHER REG. SIGN': 9,
+    'POLICE/FLAGMAN': 10,
+    'SCHOOL ZONE': 11,
+    'RR CROSSING SIGN': 12,
+    'RAILROAD CROSSING GATE': 13,
+    'OTHER RAILROAD CROSSING': 14,
+    'BICYCLE CROSSING SIGN': 15,
+    'DELINEATORS': 16,
+    'NO PASSING': 17
 }
 df['traffic_control_device'] = df['traffic_control_device'].map(traffic_control_device_mapping)
 
 weather_condition_mapping = {
-    'CLEAR': 1,
-    'CLOUDY/OVERCAST': 2,
-    'RAIN': 3,
-    'SNOW': 4,
-    'SLEET/HAIL': 5,
-    'FREEZING RAIN/DRIZZLE': 6,
-    'FOG/SMOKE/HAZE': 7,
-    'BLOWING SNOW': 8,
-    'OTHER': 9,
-    'UNKNOWN': 10
+    'UNKNOWN': 1,
+    'OTHER': 2,
+    'CLEAR': 3,
+    'CLOUDY/OVERCAST': 4,
+    'RAIN': 5,
+    'SNOW': 6,
+    'SLEET/HAIL': 7,
+    'FREEZING RAIN/DRIZZLE': 8,
+    'FOG/SMOKE/HAZE': 9,
+    'BLOWING SNOW': 10
 }
 df['weather_condition'] = df['weather_condition'].map(weather_condition_mapping)
 
 lighting_condition_mapping = {
-    'DAYLIGHT': 1,
-    'DAWN': 2,
-    'DUSK': 3,
-    'DARKNESS, LIGHTED ROAD': 4,
-    'DARKNESS': 5,
-    'UNKNOWN': 6
+    'UNKNOWN': 1,
+    'DAYLIGHT': 2,
+    'DAWN': 3,
+    'DUSK': 4,
+    'DARKNESS, LIGHTED ROAD': 5,
+    'DARKNESS': 6
 }
 df['lighting_condition'] = df['lighting_condition'].map(lighting_condition_mapping)
 
 first_crash_type_mapping = {
-    'SIDESWIPE SAME DIRECTION': 1,
-    'REAR END': 2,
-    'ANGLE': 3,
-    'TURNING': 4,
-    'REAR TO SIDE': 5,
-    'REAR TO FRONT': 6,
-    'HEAD ON': 7,
-    'SIDESWIPE OPPOSITE DIRECTION': 8,
-    'PARKED MOTOR VEHICLE': 9,
-    'FIXED OBJECT': 10,
-    'PEDESTRIAN': 11,
-    'PEDALCYCLIST': 12,
-    'OVERTURNED': 13,
-    'ANIMAL': 14,
-    'TRAIN': 15,
-    'REAR TO REAR': 16,
-    'OTHER OBJECT': 17,
-    'OTHER NONCOLLISION': 18
+    'UNKNOWN': 1,  # Added UNKNOWN though not in original mapping
+    'OTHER NONCOLLISION': 2,
+    'OTHER OBJECT': 2,  # Treating as "OTHER"
+    'SIDESWIPE SAME DIRECTION': 3,
+    'REAR END': 4,
+    'ANGLE': 5,
+    'TURNING': 6,
+    'REAR TO SIDE': 7,
+    'REAR TO FRONT': 8,
+    'HEAD ON': 9,
+    'SIDESWIPE OPPOSITE DIRECTION': 10,
+    'PARKED MOTOR VEHICLE': 11,
+    'FIXED OBJECT': 12,
+    'PEDESTRIAN': 13,
+    'PEDALCYCLIST': 14,
+    'OVERTURNED': 15,
+    'ANIMAL': 16,
+    'TRAIN': 17,
+    'REAR TO REAR': 18
 }
 df['first_crash_type'] = df['first_crash_type'].map(first_crash_type_mapping)
 
 trafficway_type_mapping = {
-    'DIVIDED - W/MEDIAN BARRIER': 1,
-    'DIVIDED - W/MEDIAN (NOT RAISED)': 2,
-    'FOUR WAY': 3,
-    'NOT DIVIDED': 4,
-    'T-INTERSECTION': 5,
-    'L-INTERSECTION': 6,
-    'Y-INTERSECTION': 7,
-    'ONE-WAY': 8,
-    'ROUNDABOUT': 9,
-    'CENTER TURN LANE': 10,
-    'TRAFFIC ROUTE': 11,
-    'FIVE POINT, OR MORE': 12,
-    'DRIVEWAY': 13,
-    'ALLEY': 14,
-    'PARKING LOT': 15,
-    'RAMP': 16,
-    'UNKNOWN INTERSECTION TYPE': 17,
-    'NOT REPORTED': 18,
-    'OTHER': 19,
-    'UNKNOWN': 20
+    'UNKNOWN': 1,
+    'UNKNOWN INTERSECTION TYPE': 1,  # Treating as "UNKNOWN"
+    'NOT REPORTED': 1,  # Treating as "UNKNOWN"
+    'OTHER': 2,
+    'DIVIDED - W/MEDIAN BARRIER': 3,
+    'DIVIDED - W/MEDIAN (NOT RAISED)': 4,
+    'FOUR WAY': 5,
+    'NOT DIVIDED': 6,
+    'T-INTERSECTION': 7,
+    'L-INTERSECTION': 8,
+    'Y-INTERSECTION': 9,
+    'ONE-WAY': 10,
+    'ROUNDABOUT': 11,
+    'CENTER TURN LANE': 12,
+    'TRAFFIC ROUTE': 13,
+    'FIVE POINT, OR MORE': 14,
+    'DRIVEWAY': 15,
+    'ALLEY': 16,
+    'PARKING LOT': 17,
+    'RAMP': 18
 }
 df['trafficway_type'] = df['trafficway_type'].map(trafficway_type_mapping)
 
 alignment_mapping = {
-    'STRAIGHT AND LEVEL': 1,
-    'STRAIGHT ON GRADE': 2,
-    'STRAIGHT ON HILLCREST': 3,
-    'CURVE, LEVEL': 4,
-    'CURVE ON GRADE': 5,
-    'CURVE ON HILLCREST': 6
+    'UNKNOWN': 1,  # Added UNKNOWN though not in original mapping
+    'OTHER': 2,    # Added OTHER though not in original mapping
+    'STRAIGHT AND LEVEL': 3,
+    'STRAIGHT ON GRADE': 4,
+    'STRAIGHT ON HILLCREST': 5,
+    'CURVE, LEVEL': 6,
+    'CURVE ON GRADE': 7,
+    'CURVE ON HILLCREST': 8
 }
 df['alignment'] = df['alignment'].map(alignment_mapping)
 
 roadway_surface_cond_mapping = {
-    'DRY': 1,
-    'WET': 2,
-    'SNOW OR SLUSH': 3,
-    'ICE': 4,
-    'OTHER': 5,
-    'UNKNOWN': 6
+    'UNKNOWN': 1,
+    'OTHER': 2,
+    'DRY': 3,
+    'WET': 4,
+    'SNOW OR SLUSH': 5,
+    'ICE': 6
 }
 df['roadway_surface_cond'] = df['roadway_surface_cond'].map(roadway_surface_cond_mapping)
 
 road_defect_mapping = {
-    'NO DEFECTS': 1,
-    'DEBRIS ON ROADWAY': 2,
-    'RUT, HOLES': 3,
-    'SHOULDER DEFECT': 4,
-    'WORN SURFACE': 5,
-    'OTHER': 6,
-    'UNKNOWN': 7
+    'UNKNOWN': 1,
+    'OTHER': 2,
+    'NO DEFECTS': 3,
+    'DEBRIS ON ROADWAY': 4,
+    'RUT, HOLES': 5,
+    'SHOULDER DEFECT': 6,
+    'WORN SURFACE': 7
 }
 df['road_defect'] = df['road_defect'].map(road_defect_mapping)
 
 crash_type_mapping = {
-    'NO INJURY / DRIVE AWAY': 1,
-    'INJURY AND / OR TOW DUE TO CRASH': 2
+    'UNKNOWN': 1,  # Added UNKNOWN though not in original mapping
+    'NO INJURY / DRIVE AWAY': 2,
+    'INJURY AND / OR TOW DUE TO CRASH': 3
 }
 df['crash_type'] = df['crash_type'].map(crash_type_mapping)
 
@@ -136,18 +140,20 @@ intersection_related_mapping = {'N': 0, 'Y': 1}
 df['intersection_related_i'] = df['intersection_related_i'].map(intersection_related_mapping)
 
 damage_mapping = {
-    '$500 OR LESS': 1,
-    '$501 - $1,500': 2,
-    'OVER $1,500': 3
+    'UNKNOWN': 1,  # Added UNKNOWN though not in original mapping
+    '$500 OR LESS': 2,
+    '$501 - $1,500': 3,
+    'OVER $1,500': 4
 }
 df['damage'] = df['damage'].map(damage_mapping)
 
 most_severe_injury_mapping = {
-    'NO INDICATION OF INJURY': 0,
-    'REPORTED, NOT EVIDENT': 1,
-    'NONINCAPACITATING INJURY': 2,
-    'INCAPACITATING INJURY': 3,
-    'FATAL': 4
+    'UNKNOWN': 1,  # Added UNKNOWN though not in original mapping
+    'NO INDICATION OF INJURY': 2,
+    'REPORTED, NOT EVIDENT': 3,
+    'NONINCAPACITATING INJURY': 4,
+    'INCAPACITATING INJURY': 5,
+    'FATAL': 6
 }
 df['most_severe_injury'] = df['most_severe_injury'].map(most_severe_injury_mapping)
 
