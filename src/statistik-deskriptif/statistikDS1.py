@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # 1. Load Data
-df = pd.read_csv('../../dataset/2024-dataset/traffic_accidents_2024.csv')
+df = pd.read_csv('../../dataset/2024-dataset/DS1-traffic_accidents_2024.csv')
 
 # 2. Statistik Deskriptif untuk Kolom Numerik
 numeric_cols = [
@@ -57,7 +57,7 @@ print("="*50)
 for col in categorical_cols:
     if col in df.columns:
         print(f"\n🔹 Distribusi {col}:")
-        print(df[col].value_counts(normalize=True).head(10))  # Top 10 kategori
+        print(df[col].value_counts(normalize=True))  # Top 10 kategori
 
 # 4. Analisis Temporal
 if 'crash_hour' in df.columns:
